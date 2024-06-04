@@ -7,6 +7,7 @@
 <body>
     <div class="container">
         <h2>Cadastro</h2>
+        <!-- o método do formulário é definido como POST e sua ação (para onde os dados serão enviados) como o arquivo pessoaController.php -->
         <form method="POST" action="controller/pessoaController.php">
             <div class="form-group">
                 <label for="nome">Nome:</label>
