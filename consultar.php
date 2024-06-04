@@ -1,4 +1,5 @@
 <?php
+    // conexão entre este arquivo e o pessoaController.php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_web_banco_de_dados/controller/pessoaController.php';
 ?>
 
@@ -22,8 +23,11 @@
             </thead>
             <tbody>
                 <?php
+                    // cria um objeto pessoaController da classe PessoaController
                     $pessoaController = new PessoaController();
+                    // cria uma variável pessoas que recebe o resultado da função listar da variável pessoaController (ou seja, a array dos registros)
                     $pessoas = $pessoaController->listar();
+                    // laço de repetição para exibir três atributos (nome, telefone, celular) de cada pessoa/registro em pessoas em forma de tabela
                     foreach($pessoas as $pessoa) {
                         echo "<th>" . $pessoa['nome'] . "</th>";
                         echo "<th>" . $pessoa['telefone'] . "</th>";

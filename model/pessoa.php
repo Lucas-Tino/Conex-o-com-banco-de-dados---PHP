@@ -1,8 +1,11 @@
 <?php
 
+// conexão entre este arquivo e o Conexao.php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_web_banco_de_dados/controller/conexao.php';
 
+// cria a classe Pessoa
 class Pessoa{
+    // declaração de variáveis privadas para cada atributo da entidade pessoa do banco de dados, mais a conexão
     private $id;
     private $nome;
     private $endereco;
@@ -14,6 +17,7 @@ class Pessoa{
     private $celular;
     private $conexao;
 
+    // funções get e set para todos os atributos da pessoa: gets servem para retornar os dados atualmente salvos, e sets servem para salvar dados novos no lugar
     public function getId() {
         return $this->id;
     }
@@ -76,28 +80,44 @@ class Pessoa{
     public function setCelular($celular) {
         $this->celular = $celular;
     }
+    // fim dos get e set
 
-
+    // método construtor
     public function __construct() {
+        // a variável conexao tem uma instância de Conexao atribuída a ela
         $this->conexao = new Conexao();
     }
 
+    // função para inserir os dados que temos no banco de dados
     public function inserir() {
+        // variável que recebe uma linha de comando insert do sql, inserindo ? em todos os campos
         $sql = "INSERT INTO pessoa (`nome`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `telefone`, `celular`) VALUES (?,?,?,?,?,?,?,?)";
+        // variável que recebe o retorno da função prepare (com a variável sql como parâmetro) da classe conexao
         $stmt = $this->conexao->getConexao()->prepare($sql);
+        // executa a função bind_param com uma string com várias letras s (a mesma quantidade de atributos) e as variáveis de dados. acredito que essa função sirva para substituir os pontos de interrogação no comando sql pelos valores nas variáveis
         $stmt->bind_param('ssssssss', $this->nome, $this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular);
+        // o retorno da função inserir é o retorno da função execute do stmt
         return $stmt->execute();
     }
 
+    // função similar à anterior, mas para listar os registros na tabela pessoa
     public function listar() {
+        // variável que recebe uma linha de comando select do sql
         $sql = "SELECT * FROM pessoa";
+        // variável que recebe o retorno da função prepare (com a variável sql como parâmetro) da classe conexao
         $stmt = $this->conexao->getConexao()->prepare($sql);
+        // executa a função execute do stmt
         $stmt->execute();
+        // variável result de recebe o resultado do stmt
         $result = $stmt->get_result();
+        // criação uma array pessoas para armazenar os registros
         $pessoas = [];
+        // laço de repetição enquando pessoas for igual ao retorno da função fetch_assoc do result (os próprios registros que foram obtidos com o select)
         while($pessoa = $result->fetch_assoc()) {
+            // insere a variável pessoa em um dos índices da array pessoas
             $pessoas[] = $pessoa;
         }
+        // retorna a array pessoas
         return $pessoas;
     }
 }
