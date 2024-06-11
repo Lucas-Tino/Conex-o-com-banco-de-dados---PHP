@@ -120,6 +120,22 @@ class Pessoa{
         // retorna a array pessoas
         return $pessoas;
     }
+
+    public function buscarPorId($id){
+        $sql = "SELECT * FROM pessoa WHERE id = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
+    public function atualizar($id){
+        $sql = "UPDATE pessoa SET nome = ?, endereco = ?, bairro = ?, cep = ?, cidade = ?, estado = ?, telefone = ?, celular = ? WHERE id = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('ssssssssi',  $this->nome, $this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular, $id);
+        return $result->fetch_assoc();
+    }
 }
 
 ?>

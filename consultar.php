@@ -29,11 +29,14 @@
                     $pessoas = $pessoaController->listar();
                     // laço de repetição para exibir três atributos (nome, telefone, celular) de cada pessoa/registro em pessoas em forma de tabela
                     foreach($pessoas as $pessoa) {
-                        echo "<th>" . $pessoa['nome'] . "</th>";
-                        echo "<th>" . $pessoa['telefone'] . "</th>";
-                        echo "<th>" . $pessoa['celular'] . "</th>";
-                    }
-                ?>
+                    ?>
+                        <tr>
+                            <td><?php echo $pessoa['nome'];?></td>
+                            <td><?php echo $pessoa['telefone'];?></td>
+                            <td><?php echo $pessoa['celular'];?></td>
+                            <td><a href="editar.php?id=<?php echo $pessoa['id'];?>&acao=atualizar">Editar</a></td>
+                        </tr>
+                    <?php } ?>
             </tbody>
         </table>
     </div>

@@ -8,7 +8,7 @@
     <div class="container">
         <h2>Cadastro</h2>
         <!-- o método do formulário é definido como POST e sua ação (para onde os dados serão enviados) como o arquivo pessoaController.php -->
-        <form method="POST" action="controller/pessoaController.php">
+        <form method="POST" action="controller/pessoaController.php?acao=inserir">
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
