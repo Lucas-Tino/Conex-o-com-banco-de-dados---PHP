@@ -121,6 +121,7 @@ class Pessoa{
         return $pessoas;
     }
 
+    // função similar à anterior, só que busca um único registro ao invés de todos, e busca o mesmo pelo seu id.
     public function buscarPorId($id){
         $sql = "SELECT * FROM pessoa WHERE id = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
@@ -130,11 +131,12 @@ class Pessoa{
         return $result->fetch_assoc();
     }
 
+    // função similar à inserir, mas que altera dados de um registro já existente ao invés de criar um novo
     public function atualizar($id){
         $sql = "UPDATE pessoa SET nome = ?, endereco = ?, bairro = ?, cep = ?, cidade = ?, estado = ?, telefone = ?, celular = ? WHERE id = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('ssssssssi',  $this->nome, $this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular, $id);
-        return $result->fetch_assoc();
+        return $stmt->execute();
     }
 }
 

@@ -10,12 +10,14 @@
     <div class="container">
         <h2>Editar</h2>
         <?php 
+            // cria um objeto e atribui a ele uma instância de pessoaController
             $pessoaController = new PessoaController();
+            // variável pessoa que recebe o resgistro corresponente ao id passado para a função buscarPorId
             $pessoa = $pessoaController->buscarPorId($_GET['id']);
         ?>
 
-        <!-- o método do formulário é definido como POST e sua ação (para onde os dados serão enviados) como o arquivo pessoaController.php -->
-        <form method="POST" action="controller/pessoaController.php?acao=atualizar&id=<?php echo $pessoa['id'] ?>">
+        <!-- o método do formulário é definido como POST e sua ação (para onde os dados serão enviados) como o arquivo pessoaController.php, com a ação atualizar e o id selecionado -->
+        <form method="POST" action="controller/pessoaController.php?acao=atualizar&id=<?php echo $pessoa['id']; ?>">
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $pessoa['nome'];?>">

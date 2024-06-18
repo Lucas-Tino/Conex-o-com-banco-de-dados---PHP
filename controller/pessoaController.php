@@ -12,7 +12,7 @@ class PessoaController {
     public function __construct() {
         // atribuição de um objeto da classe Pessoa à variável pessoa
         $this->pessoa = new Pessoa();
-        // condicional para executar a função inserir desta classe caso a variável GET acao seja igual a inserir
+        // condicional para executar a função inserir desta classe caso a variável GET acao seja igual a inserir, ou a função atualizar caso ela seja igual a atualizar
         if($_GET['acao'] == 'inserir') {
             $this->inserir();
         } else if($_GET['acao'] == 'atualizar') {
@@ -36,15 +36,17 @@ class PessoaController {
         $this->pessoa->inserir();
     }
 
-    // função para retornar outro função, este sendo o listar da classe pessoa
+    // função para retornar outra função, este sendo o listar da classe pessoa
     public function listar(){
         return $this->pessoa->listar();
     }
 
+    // função para executar outra função com o parâmetro id, esta sendo a buscaPorId de pessoa
     public function buscarPorId($id){
         return $this->pessoa->buscarPorId($id);
     }
 
+    // muda os atributos de pessoa e no final executa afunção atualizar para inserir os novos valores no banco de dados
     public function atualizar($id){
         $this->pessoa->setId($id);
         $this->pessoa->setNome($_POST['nome']);
