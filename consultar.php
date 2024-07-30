@@ -35,6 +35,7 @@
                             <td><?php echo $pessoa['telefone'];?></td>
                             <td><?php echo $pessoa['celular'];?></td>
                             <td><a href="editar.php?id=<?php echo $pessoa['id'];?>&acao=">Editar</a></td>
+                            <td><a href="excluir.php?id=<?php echo $pessoa['id'];?>&acao=">Excluir</a></td>
                         </tr>
                     <?php } ?>
             </tbody>

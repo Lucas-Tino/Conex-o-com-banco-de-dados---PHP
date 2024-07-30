@@ -138,6 +138,14 @@ class Pessoa{
         $stmt->bind_param('ssssssssi',  $this->nome, $this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular, $id);
         return $stmt->execute();
     }
+
+    // última função, que irá excluir um registro com base no id
+    public function excluir($id) {
+        $sql = "DELETE FROM pessoa WHERE id = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $id);
+        return $stmt->execute();
+    }
 }
 
 ?>

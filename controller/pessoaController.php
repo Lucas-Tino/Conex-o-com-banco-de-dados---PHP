@@ -17,6 +17,8 @@ class PessoaController {
             $this->inserir();
         } else if($_GET['acao'] == 'atualizar') {
             $this->atualizar($_GET['id']);
+        } else if($_GET['acao'] == 'excluir') {
+            $this->excluir($_GET['id']);
         }
     }
 
@@ -59,6 +61,10 @@ class PessoaController {
         $this->pessoa->setCelular($_POST['celular']);
 
         $this->pessoa->atualizar($id);
+    }
+
+    public function excluir($id) {
+        $this->pessoa->excluir($id);
     }
 }
 
