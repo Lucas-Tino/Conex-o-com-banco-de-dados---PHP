@@ -1,65 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Cadastro</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </head>
-<body>
-    <div class="container">
-        <h2>Cadastro</h2>
-        <!-- o método do formulário é definido como POST e sua ação (para onde os dados serão enviados) como o arquivo pessoaController.php -->
-        <form method="POST" action="controller/pessoaController.php?acao=inserir">
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
+
+<body class="bg-secondary-subtle">
+    <nav class="navbar navbar-expand-lg bg-success">
+        <p class="text-white fs-2 text-center mx-auto my-auto">Projeto Web - Banco de Dados</p>
+    </nav>
+
+    <div class="container bg-light rounded px-4 pt-3">
+        <h1>Projeto Web - Site conectado com um banco de dados</h1>
+        <p class="fs-5">
+            Este site é o primeiro projeto integrado a um banco de dados que desenvolvi na matéria de Programação Web II, no segundo ano do curso de Desenvolvimento de Sistemas
+            da ETEC da Zona Leste, seguindo as instruções do professor Jeferson.<br>
+            O projeto foi desenvolvido em HTML e PHP, possui estilização básica de CSS (feita com o framework Bootstrap), e tem classes com funções que executam comandos SQL
+            para cada uma das quatro operações CRUD (criar, consultar/ler, atualizar e deletar/excluir) em um banco de dados local.<br>
+            Você pode criar um novo registro ou consultar os registros já existentes para editá-los ou excluí-los clicando nos botões abaixo:
+        </p>
+        <div class="row">
+            <div class="col mb-3">
+                <a href="cadastrar.php" class="btn btn-success btn-lg me-3">Cadastrar</a>
+                <a href="consultar.php?acao=" class="btn btn-warning btn-lg">Consultar</a>
             </div>
-
-
-            <div class="form-group">
-                <label for="endereco">Endereço:</label>
-                <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite o endereço">
-            </div>
-
-
-            <div class="form-group">
-                <label for="bairro">Bairro:</label>
-                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Digite o bairro">
-            </div>
-
-
-            <div class="form-group">
-                <label for="cep">CEP:</label>
-                <input type="text" class="form-control" id="cep" name="cep" placeholder="Digite o cep">
-            </div>
-
-
-            <div class="form-group">
-                <label for="cidade">Cidade:</label>
-                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Digite a cidade">
-            </div>
-
-
-            <div class="form-group">
-                <label for="estado">Estado:</label>
-                <input type="text" class="form-control" id="estado" name="estado" placeholder="Digite o estado">
-            </div>
-
-
-            <div class="form-group">
-                <label for="telefone">Telefone:</label>
-                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite o telefone">
-            </div>
-
-
-            <div class="form-group">
-                <label for="celular">Celular:</label>
-                <input type="text" class="form-control" id="celular" name="celular" placeholder="Digite o celular">
-            </div>
-
-
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </form>
-        <br>
+        </div>
     </div>
 </body>
 </html>
