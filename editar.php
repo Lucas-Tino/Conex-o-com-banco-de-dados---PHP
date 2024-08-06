@@ -12,7 +12,20 @@
 
 <body class="bg-secondary-subtle">
     <nav class="navbar navbar-expand-lg bg-success">
-        <p class="text-white fs-2 text-center mx-auto my-auto">Projeto Web - Banco de Dados</p>
+        <div class="container">
+            <a class="navbar-brand text-white" href="index.php">Projeto Web - Banco de Dados</a>
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link text-white active" href="index.php">Index</a>
+                    <a class="nav-link text-white" href="cadastrar.php">Cadastrar</a>
+                    <a class="nav-link text-white" href="consultar.php?acao=semacao">Consultar</a>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <div class="container bg-light rounded px-4 pt-3">
@@ -27,50 +40,50 @@
         <!-- o método do formulário é definido como POST e sua ação (para onde os dados serão enviados) como o arquivo pessoaController.php, com a ação atualizar e o id selecionado -->
         <form method="POST" action="controller/pessoaController.php?acao=atualizar&id=<?php echo $pessoa['id']; ?>">
             <div class="form-group mb-3">
-                <label for="nome" class="fs-5">Nome:</label>
-                <input type="text" class="form-control fs-5" id="nome" name="nome" value="<?php echo $pessoa['nome'];?>">
+                <label for="nome" class="fs-6">Nome:</label>
+                <input type="text" class="form-control fs-6" id="nome" name="nome" value="<?php echo $pessoa['nome'];?>">
             </div>
 
 
             <div class="form-group mb-3">
-                <label for="endereco" class="fs-5">Endereço:</label>
-                <input type="text" class="form-control fs-5" id="endereco" name="endereco" value="<?php echo $pessoa['endereco'];?>">
+                <label for="endereco" class="fs-6">Endereço:</label>
+                <input type="text" class="form-control fs-6" id="endereco" name="endereco" value="<?php echo $pessoa['endereco'];?>">
             </div>
 
 
             <div class="form-group mb-3">
-                <label for="bairro" class="fs-5">Bairro:</label>
-                <input type="text" class="form-control fs-5" id="bairro" name="bairro" value="<?php echo $pessoa['bairro'];?>">
+                <label for="bairro" class="fs-6">Bairro:</label>
+                <input type="text" class="form-control fs-6" id="bairro" name="bairro" value="<?php echo $pessoa['bairro'];?>">
             </div>
 
 
             <div class="form-group mb-3">
-                <label for="cep" class="fs-5">CEP:</label>
-                <input type="text" class="form-control fs-5" id="cep" name="cep" value="<?php echo $pessoa['cep'];?>">
+                <label for="cep" class="fs-6">CEP:</label>
+                <input type="text" class="form-control fs-6" id="cep" name="cep" value="<?php echo $pessoa['cep'];?>">
             </div>
 
 
             <div class="form-group mb-3">
-                <label for="cidade" class="fs-5">Cidade:</label>
-                <input type="text" class="form-control fs-5" id="cidade" name="cidade" value="<?php echo $pessoa['cidade'];?>">
+                <label for="cidade" class="fs-6">Cidade:</label>
+                <input type="text" class="form-control fs-6" id="cidade" name="cidade" value="<?php echo $pessoa['cidade'];?>">
             </div>
 
 
             <div class="form-group mb-3">
-                <label for="estado" class="fs-5">Estado:</label>
-                <input type="text" class="form-control fs-5" id="estado" name="estado" value="<?php echo $pessoa['estado'];?>">
+                <label for="estado" class="fs-6">Estado:</label>
+                <input type="text" class="form-control fs-6" id="estado" name="estado" value="<?php echo $pessoa['estado'];?>">
             </div>
 
 
             <div class="form-group mb-3">
-                <label for="telefone" class="fs-5">Telefone:</label>
-                <input type="text" class="form-control fs-5" id="telefone" name="telefone" value="<?php echo $pessoa['telefone'];?>">
+                <label for="telefone" class="fs-6">Telefone:</label>
+                <input type="text" class="form-control fs-6" id="telefone" name="telefone" value="<?php echo $pessoa['telefone'];?>">
             </div>
 
 
             <div class="form-group mb-3">
-                <label for="celular" class="fs-5">Celular:</label>
-                <input type="text" class="form-control fs-5" id="celular" name="celular" value="<?php echo $pessoa['celular'];?>">
+                <label for="celular" class="fs-6">Celular:</label>
+                <input type="text" class="form-control fs-6" id="celular" name="celular" value="<?php echo $pessoa['celular'];?>">
             </div>
 
 

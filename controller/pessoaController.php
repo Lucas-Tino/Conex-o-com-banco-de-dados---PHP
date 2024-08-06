@@ -15,10 +15,13 @@ class PessoaController {
         // condicional para executar a função inserir desta classe caso a variável GET acao seja igual a inserir, ou a função atualizar caso ela seja igual a atualizar
         if($_GET['acao'] == 'inserir') {
             $this->inserir();
+            header('Location: ../consultar.php?acao=semacao');
         } else if($_GET['acao'] == 'atualizar') {
             $this->atualizar($_GET['id']);
+            header('Location: ../consultar.php?acao=semacao');
         } else if($_GET['acao'] == 'excluir') {
             $this->excluir($_GET['id']);
+            header('Location: ../consultar.php?acao=semacao');
         }
     }
 

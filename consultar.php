@@ -14,12 +14,25 @@
 </head>
 <body class="bg-secondary-subtle">
     <nav class="navbar navbar-expand-lg bg-success">
-        <p class="text-white fs-2 text-center mx-auto my-auto">Projeto Web - Banco de Dados</p>
+        <div class="container">
+            <a class="navbar-brand text-white" href="index.php">Projeto Web - Banco de Dados</a>
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link text-white active" href="index.php">Index</a>
+                    <a class="nav-link text-white" href="cadastrar.php">Cadastrar</a>
+                    <a class="nav-link text-white" href="consultar.php?acao=semacao">Consultar</a>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <div class="container bg-light rounded px-4 py-3">
         <h1>Consulta</h1>
-        <table class="table">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -42,8 +55,8 @@
                             <td><?php echo $pessoa['telefone'];?></td>
                             <td><?php echo $pessoa['celular'];?></td>
                             <td>
-                                <a href="editar.php?id=<?php echo $pessoa['id'];?>&acao=" class="btn btn-primary me-3">Editar</a>
-                                <a href="excluir.php?id=<?php echo $pessoa['id'];?>&acao=" class="btn btn-danger">Excluir</a>
+                                <a href="editar.php?id=<?php echo $pessoa['id'];?>&acao=semacao" class="btn btn-primary me-3">Editar</a>
+                                <a href="excluir.php?id=<?php echo $pessoa['id'];?>&acao=semacao" class="btn btn-danger">Excluir</a>
                             </td>
                         </tr>
                     <?php } ?>
